@@ -1,20 +1,30 @@
 param (
-    [switch]$Computers
+    [switch]$Domain
 )
 
-if($Computers -eq $True){
+if($Domain -eq $True){
     
-    <#
-    Get-ADComputer -Filter * -Properties * `
-    | Select -Property Name,DNSHostName,Enabled,LastLogonDate `
-    | ConvertTo-Json
-    #>
+    # $dom = New-Object System.Collections.ArrayList
+    $dom = @()
+    $tmp = Get-ADDomain -Identity "icorp.local" | Select ChildDomains
 
-    $DN = Get-ADComputer -Identity "WKS-WIN-ADMIN01" -Properties * | Select -Property DNSHostName
-    # $dom = $DN.DNSHostName | Select-String -Pattern '.*' 
-    # $values = (($DN.DistinguishedName)).split(",")
-    $begin = $DN.DNSHostName.IndexOf('.') + 1
-    Write-Host (($DN.DNSHostName)).substring($begin)
+    while($tmp -ne $null){
+        $dom += $tmp.ChildDomains
+
+        ForEach($aux in $tmp){
+            $aux2 = $aux.ChildDomains
+            If($aux -ne $null){
+                Write-Host $aux2
+                $tmp2 += Get-ADDomain -Identity "$aux2" | Select ChildDomains
+            }
+        }
+        $tmp = $tmp2.ChildDomains
+    }
+
+    ForEach($domi in $dom){
+        Write-Host $domi
+    }
+
 }
 
 # Get-ADComputer -Filter * -Properties * | Select -Property Name,DNSHostName,Enabled,LastLogonDate

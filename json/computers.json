@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "SRV-WIN-DC01",
+    "DNSHostName": "SRV-WIN-DC01.icorp.local",
+    "Enabled": true,
+    "ObjectClass": "computer",
+    "OperatingSystem": "Windows Server 2022 Standard"
+  },
+  {
+    "Name": "WKS-WIN-ADMIN01",
+    "DNSHostName": "WKS-WIN-ADMIN01.icorp.local",
+    "Enabled": true,
+    "ObjectClass": "computer",
+    "OperatingSystem": "Windows 10 Education N"
+  },
+  {
+    "Name": "WKS-UBU-USR01",
+    "DNSHostName": null,
+    "Enabled": true,
+    "ObjectClass": "computer",
+    "OperatingSystem": null
+  }
+]

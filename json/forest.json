@@ -1,0 +1,13 @@
+{
+  "Domains": [
+    "am.icorp.local",
+    "icorp.local"
+  ],
+  "Name": "icorp.local",
+  "RootDomain": "icorp.local",
+  "Sites": [
+    "BCN-HQ",
+    "JAX",
+    "TMP"
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "Administrator",
+    "SAMAccoutnName": [],
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "Guest",
+    "SAMAccoutnName": [],
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "DC01",
+    "SAMAccoutnName": [],
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "krbtgt",
+    "SAMAccoutnName": [],
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "AM$",
+    "SAMAccoutnName": [],
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "Bob Gates",
+    "SAMAccoutnName": [],
+    "UserPrincipalName": "bgates@icorp.local"
+  },
+  {
+    "Name": "Chelsea Hamilton",
+    "SAMAccoutnName": [],
+    "UserPrincipalName": "chamilton@icorp.local"
+  }
+]

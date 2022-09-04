@@ -1,0 +1,252 @@
+[
+  {
+    "Name": "Administrators",
+    "DistinguishedName": "CN=Administrators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Users",
+    "DistinguishedName": "CN=Users,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Guests",
+    "DistinguishedName": "CN=Guests,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Print Operators",
+    "DistinguishedName": "CN=Print Operators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Backup Operators",
+    "DistinguishedName": "CN=Backup Operators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Replicator",
+    "DistinguishedName": "CN=Replicator,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Remote Desktop Users",
+    "DistinguishedName": "CN=Remote Desktop Users,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Network Configuration Operators",
+    "DistinguishedName": "CN=Network Configuration Operators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Performance Monitor Users",
+    "DistinguishedName": "CN=Performance Monitor Users,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Performance Log Users",
+    "DistinguishedName": "CN=Performance Log Users,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Distributed COM Users",
+    "DistinguishedName": "CN=Distributed COM Users,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "IIS_IUSRS",
+    "DistinguishedName": "CN=IIS_IUSRS,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Cryptographic Operators",
+    "DistinguishedName": "CN=Cryptographic Operators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Event Log Readers",
+    "DistinguishedName": "CN=Event Log Readers,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Certificate Service DCOM Access",
+    "DistinguishedName": "CN=Certificate Service DCOM Access,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "RDS Remote Access Servers",
+    "DistinguishedName": "CN=RDS Remote Access Servers,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "RDS Endpoint Servers",
+    "DistinguishedName": "CN=RDS Endpoint Servers,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "RDS Management Servers",
+    "DistinguishedName": "CN=RDS Management Servers,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Hyper-V Administrators",
+    "DistinguishedName": "CN=Hyper-V Administrators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Access Control Assistance Operators",
+    "DistinguishedName": "CN=Access Control Assistance Operators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Remote Management Users",
+    "DistinguishedName": "CN=Remote Management Users,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Storage Replica Administrators",
+    "DistinguishedName": "CN=Storage Replica Administrators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Domain Computers",
+    "DistinguishedName": "CN=Domain Computers,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Domain Controllers",
+    "DistinguishedName": "CN=Domain Controllers,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Schema Admins",
+    "DistinguishedName": "CN=Schema Admins,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 2
+  },
+  {
+    "Name": "Enterprise Admins",
+    "DistinguishedName": "CN=Enterprise Admins,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 2
+  },
+  {
+    "Name": "Cert Publishers",
+    "DistinguishedName": "CN=Cert Publishers,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Domain Admins",
+    "DistinguishedName": "CN=Domain Admins,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Domain Users",
+    "DistinguishedName": "CN=Domain Users,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Domain Guests",
+    "DistinguishedName": "CN=Domain Guests,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Group Policy Creator Owners",
+    "DistinguishedName": "CN=Group Policy Creator Owners,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "RAS and IAS Servers",
+    "DistinguishedName": "CN=RAS and IAS Servers,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Server Operators",
+    "DistinguishedName": "CN=Server Operators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Account Operators",
+    "DistinguishedName": "CN=Account Operators,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Pre-Windows 2000 Compatible Access",
+    "DistinguishedName": "CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Incoming Forest Trust Builders",
+    "DistinguishedName": "CN=Incoming Forest Trust Builders,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Windows Authorization Access Group",
+    "DistinguishedName": "CN=Windows Authorization Access Group,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Terminal Server License Servers",
+    "DistinguishedName": "CN=Terminal Server License Servers,CN=Builtin,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Allowed RODC Password Replication Group",
+    "DistinguishedName": "CN=Allowed RODC Password Replication Group,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Denied RODC Password Replication Group",
+    "DistinguishedName": "CN=Denied RODC Password Replication Group,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "Read-only Domain Controllers",
+    "DistinguishedName": "CN=Read-only Domain Controllers,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Enterprise Read-only Domain Controllers",
+    "DistinguishedName": "CN=Enterprise Read-only Domain Controllers,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 2
+  },
+  {
+    "Name": "Cloneable Domain Controllers",
+    "DistinguishedName": "CN=Cloneable Domain Controllers,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Protected Users",
+    "DistinguishedName": "CN=Protected Users,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Key Admins",
+    "DistinguishedName": "CN=Key Admins,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "Enterprise Key Admins",
+    "DistinguishedName": "CN=Enterprise Key Admins,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 2
+  },
+  {
+    "Name": "DnsAdmins",
+    "DistinguishedName": "CN=DnsAdmins,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 0
+  },
+  {
+    "Name": "DnsUpdateProxy",
+    "DistinguishedName": "CN=DnsUpdateProxy,CN=Users,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "AD_Services",
+    "DistinguishedName": "CN=AD_Services,OU=IT,DC=icorp,DC=local",
+    "GroupScope": 1
+  },
+  {
+    "Name": "CISOC",
+    "DistinguishedName": "CN=CISOC,OU=IT,DC=icorp,DC=local",
+    "GroupScope": 1
+  }
+]
