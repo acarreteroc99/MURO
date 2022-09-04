@@ -1,6 +1,6 @@
-<div style="text-align: center;">
+<!-- <div style="text-align: center;"> -->
 ![alt text](https://github.com/acarreteroc99/MURO/blob/main/imgs/png/MURO_logo.png "MURO logo")
-</div>
+<!-- </div> -->
 
 ## What is MURO?
 
