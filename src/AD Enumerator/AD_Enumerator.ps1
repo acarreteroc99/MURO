@@ -111,7 +111,6 @@ If($Computers -eq $True){
     "$aux".replace("]"+$([Environment]::NewLine)+"[",",") | ConvertFrom-Json | ConvertTo-Json | Set-Content "$JSON_PATH/computers.json"
 
     # Extract Domain and insert in Json
-    # To search in multiple domains, do: Get-ADComputer -Filter * -SearchBase "DC=MyOtherDomain,DC=com" -Server "MyOtherDomain.com" 
 }
 
 # Domains extraction
@@ -152,13 +151,7 @@ If($OUs -eq $True){
 
 # Users extraction
 If($Users -eq $True){
-    <#
-    Get-ADUser -Filter * `
-    | Select Name,SAMAccountName,UserPrincipalName `
-    | ConvertTo-Json `
-    | Out-File "$JSON_PATH/users.json"
-    #>
-
+   
     $all_doms = @($ADDomain)
     $all_doms += Get_AllDomains($all_doms[0])
     $tmp = @()
@@ -173,7 +166,5 @@ If($Users -eq $True){
 
     $aux = (Get-Content "$JSON_PATH/users.json") | Out-String
     "$aux".replace("]"+$([Environment]::NewLine)+"[",",") | ConvertFrom-Json | ConvertTo-Json | Set-Content "$JSON_PATH/users.json"
-
-    # To search in multiple domains, do: Get-ADUser -Filter * -SearchBase "DC=MyOtherDomain,DC=com" -Server "MyOtherDomain.com"
 }
 
