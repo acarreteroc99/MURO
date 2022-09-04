@@ -1,4 +1,6 @@
+<div style="margin-left:auto ; margin-right:auto ; height:50% ; width:50%">
 ![Alt MURO logo](https://github.com/acarreteroc99/MURO/blob/main/imgs/png/MURO_logo.png)
+<div>
 
 ## What is MURO?
 
