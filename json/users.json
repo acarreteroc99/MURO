@@ -1,37 +1,67 @@
 [
   {
     "Name": "Administrator",
-    "SAMAccoutnName": [],
+    "SAMAccountName": "Administrator",
     "UserPrincipalName": null
   },
   {
     "Name": "Guest",
-    "SAMAccoutnName": [],
+    "SAMAccountName": "Guest",
     "UserPrincipalName": null
   },
   {
     "Name": "DC01",
-    "SAMAccoutnName": [],
+    "SAMAccountName": "DC01",
     "UserPrincipalName": null
   },
   {
     "Name": "krbtgt",
-    "SAMAccoutnName": [],
+    "SAMAccountName": "krbtgt",
     "UserPrincipalName": null
   },
   {
     "Name": "AM$",
-    "SAMAccoutnName": [],
+    "SAMAccountName": "AM$",
     "UserPrincipalName": null
   },
   {
     "Name": "Bob Gates",
-    "SAMAccoutnName": [],
+    "SAMAccountName": "bgates",
     "UserPrincipalName": "bgates@icorp.local"
   },
   {
     "Name": "Chelsea Hamilton",
-    "SAMAccoutnName": [],
+    "SAMAccountName": "chamilton",
     "UserPrincipalName": "chamilton@icorp.local"
+  },
+  {
+    "Name": "Administrator",
+    "SAMAccountName": "Administrator",
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "Guest",
+    "SAMAccountName": "Guest",
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "DC02",
+    "SAMAccountName": "DC02",
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "krbtgt",
+    "SAMAccountName": "krbtgt",
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "ICORP$",
+    "SAMAccountName": "ICORP$",
+    "UserPrincipalName": null
+  },
+  {
+    "Name": "Alan Jobs",
+    "SAMAccountName": "ajobs",
+    "UserPrincipalName": "ajobs@am.icorp.local"
   }
 ]

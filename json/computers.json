@@ -19,5 +19,19 @@
     "Enabled": true,
     "ObjectClass": "computer",
     "OperatingSystem": null
+  },
+  {
+    "Name": "SRV-WIN-DC02",
+    "DNSHostName": "SRV-WIN-DC02.am.icorp.local",
+    "Enabled": true,
+    "ObjectClass": "computer",
+    "OperatingSystem": "Windows Server 2022 Standard"
+  },
+  {
+    "Name": "WKS-WIN-USR02",
+    "DNSHostName": "WKS-WIN-USR02.am.icorp.local",
+    "Enabled": true,
+    "ObjectClass": "computer",
+    "OperatingSystem": "Windows 10 Education N"
   }
 ]

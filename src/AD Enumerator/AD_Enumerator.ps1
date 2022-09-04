@@ -5,17 +5,17 @@
 #   |-------------------------------------------------------------------------
 #   | Input  | Active Directory domain
 #   |-------------------------------------------------------------------------
-#   | Output | <domain>_computers.json
+#   | Output | computers.json
 #   |        |----------------------------------------------------------------
-#   |        | <domain>_domains.json
+#   |        | domains.json
 #   |        |----------------------------------------------------------------
-#   |        | <domain>_GPOs.json
+#   |        | forest.json
 #   |        |----------------------------------------------------------------
-#   |        | <domain>_groups.json
+#   |        | groups.json
 #   |        |----------------------------------------------------------------
-#   |        | <domain>_OUs.json
+#   |        | OUs.json
 #   |        |----------------------------------------------------------------
-#   |        | <domain>_users.json
+#   |        | users.json
 #   |        |----------------------------------------------------------------
 #   --------------------------------------------------------------------------
 # ===============================================================================
@@ -74,12 +74,41 @@ function Get_AllDomains($rootDom){
     return $dom
 }
 
+function buildSearchBaseStr($dom){
+    $str = ""
+    $num = ($dom.ToCharArray() | Where-Object {$_ -eq '.'} | Measure-Object).count
+    $dom = $dom.split(".")
+    
+    ForEach($part in $dom){
+        $str = $str+"DC="+$part+","
+    }
+
+    return $str.substring(0, $str.Length-1)
+}
+
+Clear-Content "$JSON_PATH/computers.json"
+Clear-Content "$JSON_PATH/domains.json"
+Clear-Content "$JSON_PATH/forest.json"
+Clear-Content "$JSON_PATH/groups.json"
+Clear-Content "$JSON_PATH/OUs.json"
+Clear-Content "$JSON_PATH/users.json"
+
 # Computer extraction
 If($Computers -eq $True){
-    Get-ADComputer -Filter * -Properties * `
-    | Select -Property Name,DNSHostName,Enabled,ObjectClass,OperatingSystem `
-    | ConvertTo-Json `
-    | Out-File "$JSON_PATH/computers.json"
+    $all_doms = @($ADDomain)
+    $all_doms += Get_AllDomains($all_doms[0])
+    $tmp = @()
+
+    ForEach($child in $all_doms){
+        $sb_str = buildSearchBaseStr($child)
+        Get-ADComputer -Filter * -SearchBase "$sb_str" -Server "$child" -Properties * `
+        | Select -Property Name,DNSHostName,Enabled,ObjectClass,OperatingSystem `
+        | ConvertTo-Json -Compress `
+        | Add-Content "$JSON_PATH/computers.json"
+    }
+
+    $aux = (Get-Content "$JSON_PATH/computers.json") | Out-String
+    "$aux".replace("]"+$([Environment]::NewLine)+"[",",") | ConvertFrom-Json | ConvertTo-Json | Set-Content "$JSON_PATH/computers.json"
 
     # Extract Domain and insert in Json
     # To search in multiple domains, do: Get-ADComputer -Filter * -SearchBase "DC=MyOtherDomain,DC=com" -Server "MyOtherDomain.com" 
@@ -88,7 +117,7 @@ If($Computers -eq $True){
 # Domains extraction
 If($Domains -eq $True){ 
     $all_doms = @($ADDomain)
-    $all_doms += Get_AllDomains($ADDomain)
+    $all_doms += Get_AllDomains($all_doms[0])
     ConvertTo-Json -InputObject $all_doms `
     | Out-File "$JSON_PATH/domains.json"
 }
@@ -123,10 +152,27 @@ If($OUs -eq $True){
 
 # Users extraction
 If($Users -eq $True){
+    <#
     Get-ADUser -Filter * `
-    | Select Name,SAMAccoutnName,UserPrincipalName `
+    | Select Name,SAMAccountName,UserPrincipalName `
     | ConvertTo-Json `
     | Out-File "$JSON_PATH/users.json"
+    #>
+
+    $all_doms = @($ADDomain)
+    $all_doms += Get_AllDomains($all_doms[0])
+    $tmp = @()
+
+    ForEach($child in $all_doms){
+        $sb_str = buildSearchBaseStr($child)
+        Get-ADUser -Filter * -SearchBase "$sb_str" -Server "$child" -Properties * `
+        | Select -Property Name,SAMAccountName,UserPrincipalName `
+        | ConvertTo-Json -Compress `
+        | Add-Content "$JSON_PATH/users.json"
+    }
+
+    $aux = (Get-Content "$JSON_PATH/users.json") | Out-String
+    "$aux".replace("]"+$([Environment]::NewLine)+"[",",") | ConvertFrom-Json | ConvertTo-Json | Set-Content "$JSON_PATH/users.json"
 
     # To search in multiple domains, do: Get-ADUser -Filter * -SearchBase "DC=MyOtherDomain,DC=com" -Server "MyOtherDomain.com"
 }
