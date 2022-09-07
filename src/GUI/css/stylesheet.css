@@ -1,0 +1,38 @@
+
+/* =============================== MAIN PAGE ================================ */
+
+#pageTitle {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#elements {
+    background-color: rgba(255, 137, 3);
+    display: grid;
+    padding: 5px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: 'rule-box rule-box rule-box'
+                         'wks-title users-title groups-title'
+                         'wks-box users-box groups-box'
+                         'ous-title domains-title forests-title'
+                         'ous-box domains-box forests-box';
+}
+
+.elements-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 100px;
+    font-size: 30px;
+    text-align: left;
+}
+
+#ruleBar {
+    height: 30px;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: left;
+}
