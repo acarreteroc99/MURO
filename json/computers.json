@@ -1,5 +1,5 @@
 {
-  "wks": [
+  "wks":[
   {
     "Name": "SRV-WIN-DC01",
     "DNSHostName": "SRV-WIN-DC01.icorp.local",
