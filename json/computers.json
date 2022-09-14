@@ -1,4 +1,5 @@
-[
+{
+  "wks": [
   {
     "Name": "SRV-WIN-DC01",
     "DNSHostName": "SRV-WIN-DC01.icorp.local",
@@ -35,3 +36,4 @@
     "OperatingSystem": "Windows 10 Education N"
   }
 ]
+}

@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="../css/stylesheet.css" type="text/css" />
 
+        <!--    
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
         <script>
 
@@ -19,6 +20,21 @@
         });
 
         });
+        </script>
+        -->
+
+        <script>
+            // const jsonData= require('../../json/computers.json');
+            // loadedJSON = loadJSON('../../json/computers.json', onFileload);
+            // console.log(loadedJSON);
+
+            import fetch from 'node-fetch';
+
+            fetch("./employee.json")
+            .then(response => {
+            return response.json();
+            })
+            .then(jsondata => console.log(jsondata));
         </script>
     </head>
     <body>
