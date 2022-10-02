@@ -25,7 +25,7 @@ Param(
     [Array]$Profile
 )
 
-$PROFILES_PATH = "../src/Profiles"
+$PROFILES_PATH = "../json/Profiles"
 
 function Select-Fields($rules){
 
