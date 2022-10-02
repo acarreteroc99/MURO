@@ -1,0 +1,38 @@
+{
+    "Inbound": [
+      {
+        "Port related": [
+          {
+            "title": "Remote Desktop Protocol (RDP) disabled",
+            "action": "block",
+            "port": "3389"
+          },
+          {
+            "title": "File Transfer Protocol (FTP) disabled",
+            "action": "block",
+            "port": "135"
+          }
+        ],
+        "Protocol related": [
+            {
+                "title": "UDP disabled",
+                "action": "block",
+                "port": "*",
+                "protocol": "UDP"
+            }
+        ]
+      }
+    ],
+    "Outbound": [
+      {
+        "Protocol related": [
+            {
+              "title": "Ping response enabled",
+              "action" : "",
+              "port": "*",
+              "protocol": "ICMPv4"
+            }
+          ]
+      }
+    ]
+  }
