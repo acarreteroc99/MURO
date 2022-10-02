@@ -5,7 +5,7 @@ Param(
     [Array]$Profiles
 )
 
-$PROFILES_PATH = "../src/Profiles"
+$PROFILES_PATH = "../json/Profiles"
 
 <#
 function Implement-Module($name){
@@ -57,6 +57,9 @@ function Implement-Profile($names){
         $outboundRules += Select-Fields($content.Outbound)
 
         # Run command depending on fields selected
+        foreach($rule in $inboundRules){
+            Invoke-Expression $rule;
+        }
     }
 
     return @($inboundRules, $outboundRules);

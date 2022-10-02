@@ -61,6 +61,13 @@ function Implement-Profile($names){
         $outboundRules += Select-Fields($content.Outbound)
 
         # Run command depending on fields selected
+        foreach($rule in $inboundRules){
+            Invoke-Expression $rule;
+        }
+
+        foreach($rule in $outboundRules){
+            Invoke-Expression $rule;
+        }
     }
 
     return @($inboundRules, $outboundRules);
