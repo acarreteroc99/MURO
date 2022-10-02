@@ -58,7 +58,7 @@ function Implement-Profile($names){
 
         # Run command depending on fields selected
         foreach($rule in $inboundRules){
-            Invoke-Expression $rule;
+            # Invoke-Expression $rule;
         }
     }
 
