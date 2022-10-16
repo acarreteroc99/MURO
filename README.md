@@ -11,3 +11,15 @@ MURO is a tool aimed to increase microsegmentation in a local firewall level, pr
 ## Installing MURO
 
 ## Using MURO
+
+### Regular usage
+
+### Profiles
+
+MURO allows users to create a set of rules for multiple devices. By creating "Profiles", which are rules structured in a JSON format, users can load them to MURO and edit multiple firewalls from different endpoints at once. 
+
+| Flag | Type | Description | Example |
+|---|---|---|---|
+| -Profiles  | Array | Multiple profiles can be deployed at once  | .\MURO -Profiles "Basics.json","IT-Profile.json" |
+| -Targets  | Array | Multiple targets can be imoprted from file | .\MURO -Targets "tmp_devices.json","wks.json" |
+|   |   | | |

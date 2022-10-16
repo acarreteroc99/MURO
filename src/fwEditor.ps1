@@ -21,16 +21,18 @@ Param(
     [Array]$OUs,
     [Array]$Users,
 
-    [Switch]$LoadProf,
-    [Array]$Profile
+    [Array]$Profiles,
+    [Array]$Targets
 )
 
-$PROFILES_PATH = "../json/Profiles"
+$PROFTEMPL_PATH = "../json/Profiles/Templates";
+$PROFTARGT_PATH = "../json/Profiles/Targets";
 
-function Select-Fields($rules){
+function Read-Fields($rules){
 
     $list_commands = @();
-    $command = "Set-NetFirewallRule ";
+    # $command = "Set-NetFirewallRule ";
+    $command = "";
 
     foreach($el in $rules){
         $aux = $el.PSObject.Properties.Name; 
@@ -45,28 +47,60 @@ function Select-Fields($rules){
         }
 
         $list_commands += $command
-        $command = "Set-NetFirewallRule ";
+        $command = "";
+        # $command = "Set-NetFirewallRule ";
     }
 
     return $list_commands;
 
 }
 
-function Implement-Profile($names){
+function Implement-Targets($targets){
 
-    foreach($prof in $names){
-        $content = $(Get-Content "$PROFILES_PATH/$names" | Out-String | ConvertFrom-Json)
-        
-        $inboundRules += Select-Fields($content.Inbound)
-        $outboundRules += Select-Fields($content.Outbound)
+    $inboundApps = @();             # Appearances for each group
+    $inboundGroups = @();           # Groups extracted from JSON
+    $inboundRecipients = @();       # Recipients for each group
 
-        # Run command depending on fields selected
-        foreach($rule in $inboundRules){
-            # Invoke-Expression $rule;
+    $outboundApps = @();             # Appearances for each group
+    $outboundGroups = @();           # Groups extracted from JSON
+    $outboundRecipients = @();       # Recipients for each group
+
+
+    # Checking whether a JSON with targets has been submitted
+    if($targets.Length -ne 0){
+        foreach($tgt in $targets){
+            if($targets.Length -ne 0){
+                $templContent = $(Get-Content "$PROFTARGT_PATH/$tgt" | Out-String | ConvertFrom-Json);
+
+                foreach($el in $templContent.Inbound){
+                    $inboundApps += $el.recipients.Length;
+                    $inboundGroups += $el.title;
+                    $inboundRecipients += $el.recipients;
+                }
+
+                foreach($el in $templContent.Outbound){
+                    $outboundApps += $el.recipients.Length;
+                    $outboundGroups += $el.title;
+                    $outboundRecipients += $el.recipients;
+                }
+            }
         }
+    }
+    else{
+        Write-Output "Hello user: targets have not been selected";
+    }
 
-        foreach($rule in $outboundRules){
-            # Invoke-Expression $rule;
+    return @($inboundApps, $inboundGroups, $inboundRecipients, $outboundApps, $outboundGroups, $outboundRecipients);
+}
+
+function Implement-Profiles($profiles){
+
+    foreach($prof in $profiles){
+        if($prof.Length -ne 0){
+            $templContent = $(Get-Content "$PROFTEMPL_PATH/$prof" | Out-String | ConvertFrom-Json);
+            
+            $inboundRules += Read-Fields($templContent.Inbound);
+            $outboundRules += Read-Fields($templContent.Outbound);
         }
     }
 
@@ -74,9 +108,38 @@ function Implement-Profile($names){
 
 }
 
-$rules = Implement-Profile($Profiles);
+function Input-Parser($input){
 
-Write-Output $rules[0];
+    $inputSplit = $input.Split(";");
 
- 
+}
+
+function Rule-Generator(){
+
+}
+
+function main{
+
+    if($Profiles.Length -gt 0){
+        $rules = Implement-Profiles($Profiles);
+    }
+    if($Targets.Length -gt 0){
+        $targets = Implement-Targets($Targets);
+    }
+
+    Write-Output $rules[0];
+    Write-Output $rules[1];
+}
+
+# 'main' function is invoked. Create to keep the script clean. 
+main;
+
+<# TO BE IMPLEMENTED
+
+1. To which endpoints do profiles apply to? Can be defined either by:
+    1.1 Standard flags defined in console
+    1.2 Load from JSON file
+
+#>
+
 

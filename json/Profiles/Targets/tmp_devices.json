@@ -1,0 +1,22 @@
+{
+    "Inbound": [
+        {
+            "title": "IPs",
+            "recipients": ["13.13.13.129","12.12.12.129"]
+        },
+        {
+            "title": "Computers",
+            "recipients": ["WKS-WIN-ADMIN01","WKS-WIN-USR02"]
+        }
+    ],
+    "Outbound": [
+        {
+            "title": "Groups",
+            "recipients": ["CISOC"]
+        },
+        {
+            "title": "OUs",
+            "recipients": ["IT"]
+        }
+    ]
+}
