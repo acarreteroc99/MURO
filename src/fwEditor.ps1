@@ -22,7 +22,9 @@ Param(
     [Array]$Users,
 
     [Array]$Profiles,
-    [Array]$Targets
+    [Array]$Targets,
+
+    [String]$WebInput
 )
 
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
@@ -108,9 +110,16 @@ function Implement-Profiles($profiles){
 
 }
 
-function Input-Parser($input){
+function WebInput-Parser($info){
 
-    $inputSplit = $input.Split(";");
+    $aux = $info.replace("/",",");
+    $split1 = $aux.Split(";");
+
+    foreach($el in $split1){
+        $split2 += $el.Split(":")
+    }
+
+    return $split2;
 
 }
 
@@ -120,6 +129,9 @@ function Rule-Generator(){
 
 function main{
 
+    if($WebInput.Length -gt 0){
+        $webIn = WebInput-Parser($WebInput);
+    }
     if($Profiles.Length -gt 0){
         $rules = Implement-Profiles($Profiles);
     }
@@ -134,11 +146,15 @@ function main{
 # 'main' function is invoked. Create to keep the script clean. 
 main;
 
-<# TO BE IMPLEMENTED
+<# NEXT STEPS   
 
-1. To which endpoints do profiles apply to? Can be defined either by:
-    1.1 Standard flags defined in console
-    1.2 Load from JSON file
+1. Input from website may contain arrays (string which have a ',' between two names). This must be converted into arrays by using the .Split function:
+    $results[5].Split(",");
+2. "Rule-Generator" function must be finished. All inforation gathered from Progile, Targets and User's input must be combined to create a set of rules
+that will be executed in the remote computers by using the "Invoke-Expression" command from powershell. 
+3. The main "flow" of the program shall be reviewed *(main function)
+4. Integrate the "fwEditor.ps1" with the "AD_Enumerator,ps1" to finally create the tool
+5. Maybe, transform the tool into a more modular tool to make it easier for people to do extra things. 
 
 #>
 
