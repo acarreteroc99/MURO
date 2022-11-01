@@ -3,18 +3,21 @@
         {
             "title": "Remote Desktop Protocol (RDP) disabled",
             "rule-group": "Port related",
+            "dir": "inbound",
             "action": "block",
             "port": "3389"
         },
         {
             "title": "File Transfer Protocol (FTP) disabled",
             "rule-group": "Port related",
+            "dir": "inbound",
             "action": "block",
             "port": "135"
         },
         {
             "title": "UDP disabled",
             "rule-group": "Protocol related",
+            "dir": "inbound",
             "action": "block",
             "port": "*",
             "protocol": "UDP"
@@ -24,6 +27,7 @@
         {
             "title": "Ping response enabled",
             "rule-group": "Protocol related",
+            "dir": "outbound",
             "action": "",
             "port": "*",
             "protocol": "ICMPv4"
