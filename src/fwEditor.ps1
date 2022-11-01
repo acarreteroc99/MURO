@@ -150,12 +150,14 @@ main;
 
 1. Input from website may contain arrays (string which have a ',' between two names). This must be converted into arrays by using the .Split function:
     $results[5].Split(",");
-2. "Rule-Generator" function must be finished. All inforation gathered from Progile, Targets and User's input must be combined to create a set of rules
+2. "Rule-Generator" function must be finished. All information gathered from Profile, Targets and User's input must be combined to create a set of rules
 that will be executed in the remote computers by using the "Invoke-Expression" command from powershell. 
 3. The main "flow" of the program shall be reviewed *(main function)
-4. Integrate the "fwEditor.ps1" with the "AD_Enumerator,ps1" to finally create the tool
+4. Integrate the "fwEditor.ps1" with the "AD_Enumerator.ps1" to finally create the tool
+    4.1 NOTE: It makes more sense to integrate the AD_Enumerator.ps1 with the GUI, and then the GUI with the "FWEditor.ps1"
 5. Maybe, transform the tool into a more modular tool to make it easier for people to do extra things. 
-
+    5.1 This means to separate each feature into different files, and then have a sole, main file that calls functions from each
+    file. 
 #>
 
 
