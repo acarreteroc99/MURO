@@ -2,9 +2,12 @@
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
 function Read-Fields($rules){
 
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] 'Read-Fields' function entered" >> "$LOGS_PATH/ModuleProfiles.log";
+
     $list_commands = @();
-    # $command = "Set-NetFirewallRule ";
     $command = "";
+
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Converting JSON objects into rules..." >> "$LOGS_PATH/ModuleProfiles.log";
 
     foreach($el in $rules){
         $aux = $el.PSObject.Properties.Name; 
@@ -21,11 +24,11 @@ function Read-Fields($rules){
 
         $list_commands += $command
         $command = "";
-        # $command = "Set-NetFirewallRule ";
     }
 
-    return $list_commands;
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Exiting 'Read-Fields' function" >> "$LOGS_PATH/ModuleProfiles.log";
 
+    return $list_commands;
 }
 
 function Implement-Profiles{
@@ -33,14 +36,20 @@ function Implement-Profiles{
         [Array] $profiles
     )
 
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Getting selected profile files..." >> "$LOGS_PATH/ModuleProfiles.log";
+
     foreach($prof in $profiles){
         if($prof.Length -ne 0){
+            Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Getting content from $PROFTEMPL_PATH/$prof" >> "$LOGS_PATH/ModuleProfiles.log";
             $templContent = $(Get-Content "$PROFTEMPL_PATH/$prof" | Out-String | ConvertFrom-Json);
             
             $inboundRules += Read-Fields($templContent.Inbound);
             $outboundRules += Read-Fields($templContent.Outbound);
         }
     }
+
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Exiting 'ModuleProfiles.ps1'" >> "$LOGS_PATH/ModuleProfiles.log";
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Returning results to caller..." >> "$LOGS_PATH/ModuleProfiles.log";
 
     return @($inboundRules, $outboundRules);
 
