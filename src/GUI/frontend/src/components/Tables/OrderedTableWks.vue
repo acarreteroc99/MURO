@@ -7,9 +7,9 @@
         <md-table-head>OS</md-table-head>
       </md-table-row>
       <md-table-row v-for="(data, index) in jsonContent" :key="index">  
-          <md-table-cell :md-label="ID">{{ index }}</md-table-cell>
-          <md-table-cell :md-label="Name">{{ data.Name }}</md-table-cell>
-          <md-table-cell :md-label="OperatingSystem">{{ data.OperatingSystem }}</md-table-cell>
+        <md-table-cell :md-label="ID">{{ index }}</md-table-cell>
+        <md-table-cell :md-label="Name">{{ data.Name }}</md-table-cell>
+        <md-table-cell :md-label="OperatingSystem">{{ data.OperatingSystem }}</md-table-cell>
       </md-table-row>
     </md-table>
   </div>

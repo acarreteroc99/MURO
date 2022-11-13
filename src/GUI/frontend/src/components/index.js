@@ -15,6 +15,7 @@ import OrderedTableGroups from "./Tables/OrderedTableGroups.vue";
 import OrderedTableOus from "./Tables/OrderedTableOUs.vue";
 import OrderedTableUsers from "./Tables/OrderedTableUsers.vue";
 import OrderedTableWks from "./Tables/OrderedTableWks.vue";
+import InputCommandBar from "./InputCommandBar.vue";
 
 export {
   ChartCard,
@@ -30,4 +31,5 @@ export {
   OrderedTableOus,
   OrderedTableUsers,
   OrderedTableWks,
+  InputCommandBar,
 };

@@ -1,5 +1,11 @@
 <template>
   <div class="content">
+    <h3> Rule input </h3>
+    <div style="text-align:center;">
+      <input v-model="text" placeholder="Set rule..." style="color:black; width:98%; height:40px;border-radius:7px;">
+    </div>
+    <br>
+    <h3> Data available </h3>
     <div class="md-layout">
       <!-- 
         ===========================================================================================
@@ -114,6 +120,7 @@ import {
   OrderedTableOus,
   OrderedTableUsers,
   OrderedTableWks,
+  // InputCommandBar,
 } from "@/components";
 
 export default {
@@ -128,7 +135,14 @@ export default {
     OrderedTableOus,
     OrderedTableUsers,
     OrderedTableWks,
+    // InputCommandBar,
   },
+  data() {
+    return {
+
+    };
+  },
+  /*
   data() {
     return {
       dailySalesChart: {
@@ -219,5 +233,6 @@ export default {
       },
     };
   },
+  */
 };
 </script>

@@ -7,9 +7,9 @@
         <md-table-head>Username</md-table-head>
       </md-table-row>
       <md-table-row v-for="(data, index) in jsonContent" :key="index">  
-          <md-table-cell :md-label="ID">{{ index }}</md-table-cell>
-          <md-table-cell :md-label="Name">{{ data.Name }}</md-table-cell>
-          <md-table-cell :md-label="SAMAcc">{{ data.SAMAccountName }}</md-table-cell>
+        <md-table-cell :md-label="ID">{{ index }}</md-table-cell>
+        <md-table-cell :md-label="Name">{{ data.Name }}</md-table-cell>
+        <md-table-cell :md-label="SAMAcc">{{ data.SAMAccountName }}</md-table-cell>
       </md-table-row>
     </md-table>
   </div>
