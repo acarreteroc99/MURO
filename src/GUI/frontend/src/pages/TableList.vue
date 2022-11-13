@@ -16,9 +16,7 @@
       </div>
 
       <!--
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
-      >
+      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100" >
         <md-card class="md-card-plain">
           <md-card-header data-background-color="green">
             <h4 class="title">Table on Plain Background</h4>
@@ -31,7 +29,7 @@
       </div>
       -->
 
-    <div
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card class="md-card-plain">
@@ -44,9 +42,8 @@
           </md-card-content>
         </md-card>
       </div>
-    </div>
 
-    <div
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card class="md-card-plain">
@@ -59,9 +56,8 @@
           </md-card-content>
         </md-card>
       </div>
-    </div>
 
-    <div
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card class="md-card-plain">
@@ -75,7 +71,7 @@
         </md-card>
       </div>
 
-    <div
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card class="md-card-plain">
@@ -89,7 +85,7 @@
         </md-card>
       </div>
 
-  <div
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card class="md-card-plain">
@@ -102,8 +98,8 @@
           </md-card-content>
         </md-card>
       </div>
-
-    <div
+      
+      <div
         class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
       >
         <md-card class="md-card-plain">
@@ -116,20 +112,31 @@
           </md-card-content>
         </md-card>
       </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import { SimpleTable, OrderedTable, OrderedTableDomains, OrderedTableForests, OrderedTableGroups, OrderedTableOUs, OrderedTableUsers, OrderedTableWKS } from "@/components";
+import {
+  SimpleTable,
+  // OrderedTable,
+  OrderedTableDomains,
+  OrderedTableForests,
+  OrderedTableGroups,
+  OrderedTableOus,
+  OrderedTableUsers,
+  OrderedTableWks,
+} from "@/components";
 
 export default {
   components: {
-    OrderedTableWKS,
+    OrderedTableWks,
     OrderedTableUsers,
-    OrderedTableOUs,
+    OrderedTableOus,
     OrderedTableGroups,
     OrderedTableForests,
     OrderedTableDomains,
-    OrderedTable,
+    // OrderedTable,
     SimpleTable,
   },
 };

@@ -12,9 +12,9 @@ import SimpleTable from "./Tables/SimpleTable.vue";
 import OrderedTableDomains from "./Tables/OrderedTableDomains.vue";
 import OrderedTableForests from "./Tables/OrderedTableForests.vue";
 import OrderedTableGroups from "./Tables/OrderedTableGroups.vue";
-import OrderedTableOUs from "./Tables/OrderedTableOUs.vue";
+import OrderedTableOus from "./Tables/OrderedTableOUs.vue";
 import OrderedTableUsers from "./Tables/OrderedTableUsers.vue";
-import OrderedTableWKS from "./Tables/OrderedTableWKS.vue";
+import OrderedTableWks from "./Tables/OrderedTableWks.vue";
 
 export {
   ChartCard,
@@ -27,7 +27,7 @@ export {
   OrderedTableDomains,
   OrderedTableForests,
   OrderedTableGroups,
-  OrderedTableOUs,
+  OrderedTableOus,
   OrderedTableUsers,
-  OrderedTableWKS,
+  OrderedTableWks,
 };

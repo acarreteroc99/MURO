@@ -1,30 +1,35 @@
 <template>
   <div class="content">
     <div class="md-layout">
-
       <!-- 
         ===========================================================================================
                                     INSERT CHARTS + STATS CARDS IN HERE 
         =========================================================================================== 
       -->
 
-      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
         <md-card>
           <md-card-header data-background-color="orange">
             <h4 class="title">Domains</h4>
-            <p class="category">Endpoints registered within the AD</p>
+            <p class="category">Existing domains within the AD</p>
           </md-card-header>
           <md-card-content>
-            <ordered-table-domains table-header-color="orange"></ordered-table-domains>
+            <ordered-table-domains
+                      table-header-color="orange">
+            </ordered-table-domains>
           </md-card-content>
         </md-card>
       </div>
 
-      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
         <md-card>
           <md-card-header data-background-color="orange">
             <h4 class="title">Forests</h4>
-            <p class="category">Endpoints registered within the AD</p>
+            <p class="category">Existing forests within the AD</p>
           </md-card-header>
           <md-card-content>
             <ordered-table-forests table-header-color="orange"></ordered-table-forests>
@@ -32,11 +37,13 @@
         </md-card>
       </div>
 
-      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
         <md-card>
           <md-card-header data-background-color="orange">
             <h4 class="title">Groups</h4>
-            <p class="category">Endpoints registered within the AD</p>
+            <p class="category">Groups to which users may belong to in the AD</p>
           </md-card-header>
           <md-card-content>
             <ordered-table-groups table-header-color="orange"></ordered-table-groups>
@@ -44,11 +51,13 @@
         </md-card>
       </div>
 
-      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
         <md-card>
           <md-card-header data-background-color="orange">
             <h4 class="title">OUs</h4>
-            <p class="category">Endpoints registered within the AD</p>
+            <p class="category">Existing Organizational Units (OUs)</p>
           </md-card-header>
           <md-card-content>
             <ordered-table-ous table-header-color="orange"></ordered-table-ous>
@@ -56,11 +65,13 @@
         </md-card>
       </div>
 
-      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
         <md-card>
           <md-card-header data-background-color="orange">
-            <h4 class="title">Domains</h4>
-            <p class="category">Endpoints registered within the AD</p>
+            <h4 class="title">Users</h4>
+            <p class="category">Users belonging to the company</p>
           </md-card-header>
           <md-card-content>
             <ordered-table-users table-header-color="orange"></ordered-table-users>
@@ -68,10 +79,12 @@
         </md-card>
       </div>
 
-      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50">
+      <div
+        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-50"
+      >
         <md-card>
           <md-card-header data-background-color="orange">
-            <h4 class="title">Domains</h4>
+            <h4 class="title">Workstations</h4>
             <p class="category">Endpoints registered within the AD</p>
           </md-card-header>
           <md-card-content>
@@ -85,7 +98,6 @@
                                     INSERT TABLE WITH TASKS HERE
         =========================================================================================== 
       -->
-
     </div>
   </div>
 </template>
@@ -99,9 +111,9 @@ import {
   OrderedTableDomains,
   OrderedTableForests,
   OrderedTableGroups,
-  OrderedTableOUs,
+  OrderedTableOus,
   OrderedTableUsers,
-  OrderedTableWKS,
+  OrderedTableWks,
 } from "@/components";
 
 export default {
@@ -113,9 +125,9 @@ export default {
     OrderedTableDomains,
     OrderedTableForests,
     OrderedTableGroups,
-    OrderedTableOUs,
+    OrderedTableOus,
     OrderedTableUsers,
-    OrderedTableWKS,
+    OrderedTableWks,
   },
   data() {
     return {
