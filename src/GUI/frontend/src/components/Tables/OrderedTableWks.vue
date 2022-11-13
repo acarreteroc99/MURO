@@ -1,18 +1,22 @@
 <template>
   <div>
     <md-table v-model="users" :table-header-color="tableHeaderColor">
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="ID">{{ item.id }}</md-table-cell>
-        <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
-        <md-table-cell md-label="Salary">{{ item.salary }}</md-table-cell>
-        <md-table-cell md-label="Country">{{ item.country }}</md-table-cell>
-        <md-table-cell md-label="City">{{ item.city }}</md-table-cell>
+      <md-table-row>
+        <md-table-head>ID</md-table-head>
+        <md-table-head>Name</md-table-head>
+        <md-table-head>OS</md-table-head>
+      </md-table-row>
+      <md-table-row v-for="(data, index) in jsonContent" :key="index">  
+          <md-table-cell :md-label="ID">{{ index }}</md-table-cell>
+          <md-table-cell :md-label="Name">{{ data.Name }}</md-table-cell>
+          <md-table-cell :md-label="OperatingSystem">{{ data.OperatingSystem }}</md-table-cell>
       </md-table-row>
     </md-table>
   </div>
 </template>
 
 <script>
+import json from "../../../../../../json/AD_Info/computers.json";
 export default {
   name: "ordered-table-wks",
   props: {
@@ -23,37 +27,7 @@ export default {
   },
   data() {
     return {
-      selected: [],
-      users: [
-        {
-          id: 1,
-          name: "Dakota Rice",
-          salary: "$36,738",
-          country: "Niger",
-          city: "Oud-Turnhout",
-        },
-        {
-          id: 2,
-          name: "Minerva Hooper",
-          salary: "$23,738",
-          country: "Curaçao",
-          city: "Sinaai-Waas",
-        },
-        {
-          id: 3,
-          name: "Sage Rodriguez",
-          salary: "$56,142",
-          country: "Netherlands",
-          city: "Overland Park",
-        },
-        {
-          id: 4,
-          name: "Philip Chaney",
-          salary: "$38,735",
-          country: "Korea, South",
-          city: "Gloucester",
-        },
-      ],
+      jsonContent: json.wks,
     };
   },
 };
