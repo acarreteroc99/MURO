@@ -2,7 +2,8 @@
   <div class="content">
     <h3> Rule input </h3>
     <div style="text-align:center;">
-      <input v-model="text" placeholder="Set rule..." style="color:black; width:98%; height:40px;border-radius:7px;">
+      <input type="text" placeholder="Set rule..." v-model="command" style="color:grey; width:95%; height:40px;border-radius:7px;">
+      <button type="button" v-on:click="submitCommand()" style="color:grey; width:3%; height:40px;border-radius:7px;">></button>
     </div>
     <br>
     <h3> Data available </h3>
@@ -137,10 +138,15 @@ export default {
     OrderedTableWks,
     // InputCommandBar,
   },
-  data() {
-    return {
-
-    };
+  data(){
+    return{
+      command: null
+    }
+  },
+  methods:{
+    submitCommand(){
+      console.warn("values: ", this.command);
+    }
   },
   /*
   data() {
