@@ -19,6 +19,11 @@
         <md-icon>content_paste</md-icon>
         <p>Table list</p>
       </sidebar-link>
+      <sidebar-link to="/notifications">
+        <md-icon>notifications</md-icon>
+        <p>Notifications</p>
+      </sidebar-link>
+      <!--
       <sidebar-link to="/typography">
         <md-icon>library_books</md-icon>
         <p>Typography</p>
@@ -39,6 +44,7 @@
         <md-icon>unarchive</md-icon>
         <p>Upgrade to PRO</p>
       </sidebar-link>
+            -->
     </side-bar>
 
     <div class="main-panel">
@@ -74,8 +80,8 @@ export default {
   },
   data() {
     return {
-      sidebarBackground: "green",
-      sidebarBackgroundImage: require("@/assets/img/sidebar-2.jpg"),
+      sidebarBackground: "orange",
+      sidebarBackgroundImage: require("@/assets/img/sidebar-cyber.jpeg"),
     };
   },
 };

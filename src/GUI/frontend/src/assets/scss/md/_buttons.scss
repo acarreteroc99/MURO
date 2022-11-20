@@ -54,10 +54,12 @@
       @include btn-styles($brand-info);
     }
     &.md-success{
-      @include btn-styles($brand-success);
+      // @include btn-styles($brand-success);    -- original
+      @include btn-styles($brand-warning);
     }
     &.md-warning{
-      @include btn-styles($brand-warning);
+      // @include btn-styles($brand-warning);    -- original
+      @include btn-styles($brand-success);
     }
     &.md-danger{
       @include btn-styles($brand-danger);

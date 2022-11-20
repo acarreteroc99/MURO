@@ -47,19 +47,19 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Vue MD",
+      default: "MURO",
     },
     sidebarBackgroundImage: {
       type: String,
-      default: require("@/assets/img/sidebar-2.jpg"),
+      default: require("@/assets/img/sidebar-cyber.jpeg"),
     },
     imgLogo: {
       type: String,
-      default: require("@/assets/img/vue-logo.png"),
+      default: require("@/assets/img/MURO_logo.png"),
     },
     sidebarItemColor: {
       type: String,
-      default: "green",
+      default: "orange",
       validator: (value) => {
         let acceptedValues = ["", "purple", "blue", "green", "orange", "red"];
         return acceptedValues.indexOf(value) !== -1;
