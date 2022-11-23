@@ -3,7 +3,7 @@
     <h3> Rule input </h3>
     <div style="text-align:center;">
       <input type="text" placeholder="Set rule..." v-model="command" style="color:grey; width:95%; height:40px;border-radius:7px;">
-      <button type="button" v-on:click="submitCommand()" style="color:grey; width:3%; height:40px;border-radius:7px;">></button>
+      <button type="button" v-on:click="sendCommand()" style="color:grey; width:3%; height:40px;border-radius:7px;">></button>
     </div>
     <br>
     <h3> Data available </h3>
@@ -146,7 +146,20 @@ export default {
   methods:{
     submitCommand(){
       console.warn("values: ", this.command);
+    },
+    sendCommand(){
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://localhost:8080/home");
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log(xhr.responseText);
+        }};
+
+      xhr.send(this.command);
+      console.warn("values: ", this.command);
     }
+
   },
   /*
   data() {
