@@ -1,13 +1,13 @@
 
 $PROFTARGT_PATH = "../json/Profiles/Targets";
-$LOGS_PATH = "../../logs/Modules";
+$LOGS_PATH_2 = "../../logs/Modules";
 
 function Implement-Targets{
     param(
         [Array] $targets
     )
 
-    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Starting execution of file 'ModuleTarget.ps1'" >> "$LOGS_PATH/ModuleTargets.log";
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Starting execution of file 'ModuleTarget.ps1'" >> "$LOGS_PATH_2/ModuleTargets.log";
 
     $inboundApps = @();             # Appearances for each group
     $inboundGroups = @();           # Groups extracted from JSON
@@ -19,9 +19,9 @@ function Implement-Targets{
 
 
     # Checking whether a JSON with targets has been submitted
-    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Checking whether 'Targets' option has been submitted" >> "$LOGS_PATH/ModuleTargets.log";
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Checking whether 'Targets' option has been submitted" >> "$LOGS_PATH_2/ModuleTargets.log";
     if($targets.Length -ne 0){
-        Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Getting content from the selected target files" >> "$LOGS_PATH/ModuleTargets.log";
+        Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Getting content from the selected target files" >> "$LOGS_PATH_2/ModuleTargets.log";
         foreach($tgt in $targets){
             if($targets.Length -ne 0){
                 $templContent = $(Get-Content "$PROFTARGT_PATH/$tgt" | Out-String | ConvertFrom-Json);
@@ -41,12 +41,12 @@ function Implement-Targets{
         }
     }
     else{
-        Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] No targets file has been selected. Printing error message" >> "$LOGS_PATH/ModuleTargets.log";
+        Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] No targets file has been selected. Printing error message" >> "$LOGS_PATH_2/ModuleTargets.log";
         Write-Output "Target files (JSON) have ot been selected";
     }
 
-    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Exiting 'ModuleTarget.ps1'" >> "$LOGS_PATH/ModuleTargets.log";
-    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Returning results to caller..." >> "$LOGS_PATH/ModuleTargets.log";
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Exiting 'ModuleTarget.ps1'" >> "$LOGS_PATH_2/ModuleTargets.log";
+    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Returning results to caller..." >> "$LOGS_PATH_2/ModuleTargets.log";
     
     return @($inboundApps, $inboundGroups, $inboundRecipients, $outboundApps, $outboundGroups, $outboundRecipients);
 }
