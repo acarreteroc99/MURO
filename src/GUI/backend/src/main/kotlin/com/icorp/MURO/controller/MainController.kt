@@ -2,18 +2,20 @@ package com.icorp.MURO.controller
 
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
 // @RequestMapping("/api")
-class TestController {
+class MainController {
 
-    @CrossOrigin(origins = arrayOf("http://localhost:8080"))
+    // @CrossOrigin(origins = arrayOf("http://localhost:8080"))
     @GetMapping("/home")
-    fun helloKotlin(): String {
-        System.out.println("===  HELLOW WORLD  ===");
+    fun helloKotlin(@RequestParam input:String): String {
+        // Runtime.getRuntime().exec("powershell.exe -File C:\\Users\\bgates\\Desktop\\MURO\\MURO\\src\\helloworld.ps1 -WebInput $input");
+        Runtime.getRuntime().exec("powershell.exe -File C:\\Users\\bgates\\Desktop\\MURO\\MURO\\src\\fwEditor.ps1 -WebInput $input");
+        // System.out.println(input);
         return "0";
     }
 }

@@ -149,7 +149,7 @@ export default {
     },
     sendCommand(){
       let xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://localhost:8080/home");
+      xhr.open("GET", "http://localhost:4040/home?input=" + this.command);
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {

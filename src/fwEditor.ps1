@@ -30,7 +30,7 @@ Param(
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
 $PROFTARGT_PATH = "../json/Profiles/Targets";
 $MODULES_PATH = "./Modules";
-$LOGS_PATH = "../logs";
+$LOGS_PATH = "C:\Users\bgates\Desktop\MURO_TFG\MURO\logs";
 
 . "$MODULES_PATH/ModuleProfiles.ps1"
 . "$MODULES_PATH/ModuleTargets.ps1"
@@ -167,6 +167,8 @@ function Rule-Generator($webInp, $profFN, $targFN){
             $rules += $profRule + $target + ";";
         }
     }
+
+    Write-Output "====================== $LOGS_PATH =============="
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Exiting 'Rule-Generator' function" >> "$LOGS_PATH/fwEditor.log";
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Results are being returned to caller... " >> "$LOGS_PATH/fwEditor.log";
