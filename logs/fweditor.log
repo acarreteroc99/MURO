@@ -1,90 +1,197 @@
-[11/30/2022 8:23 PM] Calling function 'main
-[11/30/2022 8:23 PM] Calling 'WebInput-Parser' function
-[11/30/2022 8:23 PM] Extracting filenames from Profiles and Targets files (if specified)
-[11/30/2022 8:23 PM] Calling 'Rule-Generator' function...
-[11/30/2022 8:23 PM] 'Rule-Generator' function has been entered
-[11/30/2022 8:23 PM] Creation of the rule defined by the user through the GUI has started
-[11/30/2022 8:23 PM] Calling ModuleTargets.ps1
-[11/30/2022 8:23 PM] Extracting outbound targets
-[11/30/2022 8:23 PM] Flags are being added to the targets according to the specified group
-[11/30/2022 8:23 PM] Rule coming from the website/GUI is being merged with specified targets
-[11/30/2022 8:23 PM] Calling ModuleProfiles.ps1
-[11/30/2022 8:23 PM] Creating rule from profiles' contents
-[11/30/2022 8:23 PM] Merging rules created from profiles with targets extracted previously
-[11/30/2022 8:23 PM] Exiting 'Rule-Generator' function
-[11/30/2022 8:23 PM] Results are being returned to caller... 
-[11/30/2022 8:52 PM] Calling function 'main
-[11/30/2022 8:52 PM] Calling 'WebInput-Parser' function
-[11/30/2022 8:52 PM] Extracting filenames from Profiles and Targets files (if specified)
-[11/30/2022 8:52 PM] Calling 'Rule-Generator' function...
-[11/30/2022 8:52 PM] 'Rule-Generator' function has been entered
-[11/30/2022 8:52 PM] Creation of the rule defined by the user through the GUI has started
-[11/30/2022 8:52 PM] Calling ModuleTargets.ps1
-[11/30/2022 8:52 PM] Extracting outbound targets
-[11/30/2022 8:52 PM] Flags are being added to the targets according to the specified group
-[11/30/2022 8:52 PM] Rule coming from the website/GUI is being merged with specified targets
-[11/30/2022 8:52 PM] Calling ModuleProfiles.ps1
-[11/30/2022 8:52 PM] Creating rule from profiles' contents
-[11/30/2022 8:52 PM] Merging rules created from profiles with targets extracted previously
-[11/30/2022 8:52 PM] Exiting 'Rule-Generator' function
-[11/30/2022 8:52 PM] Results are being returned to caller... 
-[11/30/2022 8:52 PM] Calling function 'main
-[11/30/2022 8:52 PM] Calling 'WebInput-Parser' function
-[11/30/2022 8:52 PM] Extracting filenames from Profiles and Targets files (if specified)
-[11/30/2022 8:52 PM] Calling 'Rule-Generator' function...
-[11/30/2022 8:52 PM] 'Rule-Generator' function has been entered
-[11/30/2022 8:52 PM] Creation of the rule defined by the user through the GUI has started
-[11/30/2022 8:52 PM] Calling ModuleTargets.ps1
-[11/30/2022 8:52 PM] Extracting outbound targets
-[11/30/2022 8:52 PM] Flags are being added to the targets according to the specified group
-[11/30/2022 8:52 PM] Rule coming from the website/GUI is being merged with specified targets
-[11/30/2022 8:52 PM] Calling ModuleProfiles.ps1
-[11/30/2022 8:52 PM] Creating rule from profiles' contents
-[11/30/2022 8:52 PM] Merging rules created from profiles with targets extracted previously
-[11/30/2022 8:52 PM] Exiting 'Rule-Generator' function
-[11/30/2022 8:52 PM] Results are being returned to caller... 
-[11/30/2022 8:54 PM] Calling function 'main
-[11/30/2022 8:54 PM] Calling 'WebInput-Parser' function
-[11/30/2022 8:54 PM] Extracting filenames from Profiles and Targets files (if specified)
-[11/30/2022 8:54 PM] Calling 'Rule-Generator' function...
-[11/30/2022 8:54 PM] 'Rule-Generator' function has been entered
-[11/30/2022 8:54 PM] Creation of the rule defined by the user through the GUI has started
-[11/30/2022 8:54 PM] Calling ModuleTargets.ps1
-[11/30/2022 8:54 PM] Extracting outbound targets
-[11/30/2022 8:54 PM] Flags are being added to the targets according to the specified group
-[11/30/2022 8:54 PM] Rule coming from the website/GUI is being merged with specified targets
-[11/30/2022 8:54 PM] Calling ModuleProfiles.ps1
-[11/30/2022 8:54 PM] Creating rule from profiles' contents
-[11/30/2022 8:54 PM] Merging rules created from profiles with targets extracted previously
-[11/30/2022 8:54 PM] Exiting 'Rule-Generator' function
-[11/30/2022 8:54 PM] Results are being returned to caller... 
-[11/30/2022 8:54 PM] Calling function 'main
-[11/30/2022 8:54 PM] Calling 'WebInput-Parser' function
-[11/30/2022 8:54 PM] Extracting filenames from Profiles and Targets files (if specified)
-[11/30/2022 8:54 PM] Calling 'Rule-Generator' function...
-[11/30/2022 8:54 PM] 'Rule-Generator' function has been entered
-[11/30/2022 8:54 PM] Creation of the rule defined by the user through the GUI has started
-[11/30/2022 8:54 PM] Calling ModuleTargets.ps1
-[11/30/2022 8:54 PM] Extracting outbound targets
-[11/30/2022 8:54 PM] Flags are being added to the targets according to the specified group
-[11/30/2022 8:54 PM] Rule coming from the website/GUI is being merged with specified targets
-[11/30/2022 8:54 PM] Calling ModuleProfiles.ps1
-[11/30/2022 8:54 PM] Creating rule from profiles' contents
-[11/30/2022 8:54 PM] Merging rules created from profiles with targets extracted previously
-[11/30/2022 8:54 PM] Exiting 'Rule-Generator' function
-[11/30/2022 8:54 PM] Results are being returned to caller... 
-[11/30/2022 8:58 PM] Calling function 'main
-[11/30/2022 8:58 PM] Calling 'WebInput-Parser' function
-[11/30/2022 8:58 PM] Extracting filenames from Profiles and Targets files (if specified)
-[11/30/2022 8:58 PM] Calling 'Rule-Generator' function...
-[11/30/2022 8:58 PM] 'Rule-Generator' function has been entered
-[11/30/2022 8:58 PM] Creation of the rule defined by the user through the GUI has started
-[11/30/2022 8:58 PM] Calling ModuleTargets.ps1
-[11/30/2022 8:58 PM] Extracting outbound targets
-[11/30/2022 8:58 PM] Flags are being added to the targets according to the specified group
-[11/30/2022 8:58 PM] Rule coming from the website/GUI is being merged with specified targets
-[11/30/2022 8:58 PM] Calling ModuleProfiles.ps1
-[11/30/2022 8:58 PM] Creating rule from profiles' contents
-[11/30/2022 8:58 PM] Merging rules created from profiles with targets extracted previously
-[11/30/2022 8:58 PM] Exiting 'Rule-Generator' function
-[11/30/2022 8:58 PM] Results are being returned to caller... 
+[12/6/2022 12:05 PM] Calling function 'main
+[12/6/2022 12:05 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:05 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:05 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:05 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:05 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:05 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:05 PM] Extracting outbound targets
+[12/6/2022 12:05 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:05 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:05 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:05 PM] Creating rule from profiles' contents
+[12/6/2022 12:05 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:05 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:05 PM] Results are being returned to caller... 
+[12/6/2022 12:06 PM] Calling function 'main
+[12/6/2022 12:06 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:06 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:06 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:06 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:06 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:06 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:06 PM] Extracting outbound targets
+[12/6/2022 12:06 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:06 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:06 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:06 PM] Creating rule from profiles' contents
+[12/6/2022 12:06 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:06 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:06 PM] Results are being returned to caller... 
+[12/6/2022 12:06 PM] Calling function 'main
+[12/6/2022 12:06 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:06 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:06 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:06 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:06 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:06 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:06 PM] Extracting outbound targets
+[12/6/2022 12:06 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:06 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:06 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:06 PM] Creating rule from profiles' contents
+[12/6/2022 12:06 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:06 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:06 PM] Results are being returned to caller... 
+[12/6/2022 12:07 PM] Calling function 'main
+[12/6/2022 12:07 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:07 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:07 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:07 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:07 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:07 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:07 PM] Extracting outbound targets
+[12/6/2022 12:07 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:07 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:07 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:07 PM] Creating rule from profiles' contents
+[12/6/2022 12:07 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:07 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:07 PM] Results are being returned to caller... 
+[12/6/2022 12:09 PM] Calling function 'main
+[12/6/2022 12:09 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:09 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:09 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:09 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:09 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:09 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:09 PM] Extracting outbound targets
+[12/6/2022 12:09 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:09 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:09 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:09 PM] Creating rule from profiles' contents
+[12/6/2022 12:09 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:09 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:09 PM] Results are being returned to caller... 
+[12/6/2022 12:09 PM] Calling function 'main
+[12/6/2022 12:09 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:09 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:09 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:09 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:09 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:09 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:09 PM] Extracting outbound targets
+[12/6/2022 12:09 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:09 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:09 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:09 PM] Creating rule from profiles' contents
+[12/6/2022 12:09 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:09 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:09 PM] Results are being returned to caller... 
+[12/6/2022 12:10 PM] Calling function 'main
+[12/6/2022 12:10 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:10 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:10 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:10 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:10 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:10 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:10 PM] Extracting outbound targets
+[12/6/2022 12:10 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:10 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:10 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:10 PM] Creating rule from profiles' contents
+[12/6/2022 12:10 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:10 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:10 PM] Results are being returned to caller... 
+[12/6/2022 12:11 PM] Calling function 'main
+[12/6/2022 12:11 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:11 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:11 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:11 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:11 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:11 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:11 PM] Extracting outbound targets
+[12/6/2022 12:11 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:11 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:11 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:11 PM] Creating rule from profiles' contents
+[12/6/2022 12:11 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:11 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:11 PM] Results are being returned to caller... 
+[12/6/2022 12:14 PM] Calling function 'main
+[12/6/2022 12:14 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:14 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:14 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:14 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:14 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:14 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:14 PM] Extracting outbound targets
+[12/6/2022 12:14 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:14 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:14 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:14 PM] Creating rule from profiles' contents
+[12/6/2022 12:14 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:14 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:14 PM] Results are being returned to caller... 
+[12/6/2022 12:15 PM] Calling function 'main
+[12/6/2022 12:15 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:15 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:15 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:15 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:15 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:15 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:15 PM] Extracting outbound targets
+[12/6/2022 12:15 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:15 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:15 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:15 PM] Creating rule from profiles' contents
+[12/6/2022 12:15 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:15 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:15 PM] Results are being returned to caller... 
+[12/6/2022 12:16 PM] Calling function 'main
+[12/6/2022 12:16 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:16 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:16 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:16 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:16 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:16 PM] Calling ModuleTargets.ps1
+[12/6/2022 12:16 PM] Extracting outbound targets
+[12/6/2022 12:16 PM] Flags are being added to the targets according to the specified group
+[12/6/2022 12:16 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:16 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:16 PM] Creating rule from profiles' contents
+[12/6/2022 12:16 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:16 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:16 PM] Results are being returned to caller... 
+[12/6/2022 12:25 PM] Calling function 'main
+[12/6/2022 12:25 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:25 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:25 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:25 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:25 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:25 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:25 PM] Calling ModuleProfiles.ps1
+[12/6/2022 12:25 PM] Creating rule from profiles' contents
+[12/6/2022 12:25 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:25 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:25 PM] Results are being returned to caller... 
+[12/6/2022 12:26 PM] Calling function 'main
+[12/6/2022 12:26 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:26 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:26 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:26 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:26 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:26 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:26 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:26 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:26 PM] Results are being returned to caller... 
+[12/6/2022 12:27 PM] Calling function 'main
+[12/6/2022 12:27 PM] Calling 'WebInput-Parser' function
+[12/6/2022 12:27 PM] Extracting filenames from Profiles and Targets files (if specified)
+[12/6/2022 12:27 PM] Calling 'Rule-Generator' function...
+[12/6/2022 12:27 PM] 'Rule-Generator' function has been entered
+[12/6/2022 12:27 PM] Creation of the rule defined by the user through the GUI has started
+[12/6/2022 12:27 PM] Rule coming from the website/GUI is being merged with specified targets
+[12/6/2022 12:27 PM] Merging rules created from profiles with targets extracted previously
+[12/6/2022 12:27 PM] Exiting 'Rule-Generator' function
+[12/6/2022 12:27 PM] Results are being returned to caller... 

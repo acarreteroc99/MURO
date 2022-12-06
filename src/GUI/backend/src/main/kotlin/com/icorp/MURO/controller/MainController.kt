@@ -15,7 +15,7 @@ class MainController {
     fun helloKotlin(@RequestParam input:String): String {
         // Runtime.getRuntime().exec("powershell.exe -File C:\\Users\\bgates\\Desktop\\MURO\\MURO\\src\\helloworld.ps1 -WebInput $input");
         Runtime.getRuntime().exec("powershell.exe -File C:\\Users\\bgates\\Desktop\\MURO\\MURO\\src\\fwEditor.ps1 -WebInput $input");
-        // System.out.println(input);
+        System.out.println(input);
         return "0";
     }
 }

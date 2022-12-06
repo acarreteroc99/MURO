@@ -30,12 +30,13 @@ Param(
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
 $PROFTARGT_PATH = "../json/Profiles/Targets";
 $MODULES_PATH = "./Modules";
+$LOGS_PATH = "../logs";
 # $LOGS_PATH = "C:\Users\bgates\Desktop\MURO_TFG\MURO\logs";
 
-Set-Variable PROFTEMPL_PATH -option Constant -value "../jsonProfiles/Templates";
-Set-Variable PROFTARGT_PATH -option Constant -value "../json/Profiles/Targets";
-Set-Variable MODULES_PATH -option Constant -value "./Modules";
-Set-Variable LOGS_PATH -option Constant -value "../logs";
+# Set-Variable PROFTEMPL_PATH -option Constant -value "../jsonProfiles/Templates";
+# Set-Variable PROFTARGT_PATH -option Constant -value "../json/Profiles/Targets";
+# Set-Variable MODULES_PATH -option Constant -value "./Modules";
+# Set-Variable LOGS_PATH -option Constant -value "../logs";
 
 . "$MODULES_PATH/ModuleProfiles.ps1"
 . "$MODULES_PATH/ModuleTargets.ps1"
@@ -56,17 +57,16 @@ function WebInput-Parser([array] $info){
     }
 
     return $split2;
-
 }
 
 function Filename-Extractor([array]$arrayInp,[string]$flagName){
 
-    $posFN=0;
+    $FileName="";
 
     for($pos=0; $pos -le $($arrayInp.Length-1); $pos++){
 
         if($arrayInp[$pos] -eq $flagName){
-            $posFN=$pos+1;
+            $FileName=$arrayInp[$pos+1];
             $pos=$arrayInp.length;
         }
     }
@@ -74,7 +74,7 @@ function Filename-Extractor([array]$arrayInp,[string]$flagName){
    # Write-Output "This is the position outside the if" $posFN;
    # Write-Output "This is the name of the file" $arrayInp[$posFN];
 
-   return $arrayInp[$posFN];
+   return $FileName;
 }
 
 function Rule-Generator($webInp, $profFN, $targFN){
