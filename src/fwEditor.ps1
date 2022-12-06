@@ -141,12 +141,18 @@ function Rule-Generator($webInp, $profFN, $targFN){
             $ctr += 1;
             $acc += $numEl[$ctr];
         }
+
+        Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Rule coming from the website/GUI is being merged with specified targets" >> "$LOGS_PATH/fwEditor.log";
+        foreach($el in $targetList){
+            $rules += $webCommand + $el + ";";
+        }
     }
 
-    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Rule coming from the website/GUI is being merged with specified targets" >> "$LOGS_PATH/fwEditor.log";
-    foreach($el in $targetList){
-        $rules += $webCommand + $el + ";";
+    else {
+        $targetList += $webCommand + ";";
     }
+
+    # MERGE WITH SPECIFIED TARGETS WAS MADE HERE
 
     # ============   PROFILES   ================
     # If a profile has been defined, then rules will be "concatenated" to the one defined by the user
@@ -163,15 +169,23 @@ function Rule-Generator($webInp, $profFN, $targFN){
                 $listOfProfRules += $aux2;
             }
         }
-    }
 
-    Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Merging rules created from profiles with targets extracted previously" >> "$LOGS_PATH/fwEditor.log";
+        Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Merging rules created from profiles with targets extracted previously" >> "$LOGS_PATH/fwEditor.log";
 
-    foreach($target in $targetList){
-        foreach($profRule in $listOfProfRules){
-            $rules += $profRule + $target + ";";
+        foreach($target in $targetList){
+            foreach($profRule in $listOfProfRules){
+                $rules += $profRule + $target + ";";
+            }
         }
     }
+
+    else {
+        foreach($target in $targetList){
+            $rules += $target;
+        }
+    }
+
+    # MERGE WITH RULES FROM PROFILE WAS MADE HERE
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Exiting 'Rule-Generator' function" >> "$LOGS_PATH/fwEditor.log";
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Results are being returned to caller... " >> "$LOGS_PATH/fwEditor.log";
