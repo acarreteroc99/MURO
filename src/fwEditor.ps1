@@ -27,11 +27,16 @@ Param(
     [String]$WebInput
 )
 
+$USR = "XXXXX";
+$SECRET = ConvertTo-SecureString -String "YYYYY" -AsPlainText -Force;
+$CREDS = [pscredential]::new($USR,$SECRET);
+
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
 $PROFTARGT_PATH = "../json/Profiles/Targets";
 $MODULES_PATH = "./Modules";
 $LOGS_PATH = "../logs";
-# $LOGS_PATH = "C:\Users\bgates\Desktop\MURO_TFG\MURO\logs";
+
+$TARGETS_LIST = "";
 
 # Set-Variable PROFTEMPL_PATH -option Constant -value "../jsonProfiles/Templates";
 # Set-Variable PROFTARGT_PATH -option Constant -value "../json/Profiles/Targets";
@@ -63,10 +68,12 @@ function Filename-Extractor([array]$arrayInp,[string]$flagName){
 
     $FileName="";
 
-    for($pos=0; $pos -le $($arrayInp.Length-1); $pos++){
+    for($pos=0; $pos -lt $($arrayInp.Length); $pos++){
+
+        "Content in position $pos is {0}" -f $arrayInp[$pos];
 
         if($arrayInp[$pos] -eq $flagName){
-            $FileName=$arrayInp[$pos+1];
+            $FileName=$arrayInp[$($pos+1)];
             $pos=$arrayInp.length;
         }
     }
@@ -84,7 +91,8 @@ function Rule-Generator($webInp, $profFN, $targFN){
     $rules = @();
 
     # ============   WEBINPUT   ==============
-    $webCommand = "Set-NetFirewallRule ";
+    # $webCommand = "Set-NetFirewallRule ";
+    $webCommand = "Invoke-Command -ComputerName $TARGETS_LIST -Credential $CREDS -ScriptBlock { Set-NetFirewallRule ";
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Creation of the rule defined by the user through the GUI has started" >> "$LOGS_PATH/fwEditor.log";
 
@@ -93,8 +101,12 @@ function Rule-Generator($webInp, $profFN, $targFN){
         Switch($webInp[$pos]){
             "action" {$webCommand += "-Action " + $webInp[$pos+1] + " "}
             "dir" {$webCommand += "-Direction " + $webInp[$pos+1] + " "}
+            "enabled" {$webCommand += "-Enabled " + $webInp[$pos+1] + " "}
+            "localaddr" {$webCommand += "-LocalAddress " + $webInp[$pos+1] + " "}
+            "newname" {$webCommand += "-NewDisplayName " + $webInp[$pos+1] + " "}
             "port" {$webCommand += "-LocalPort " + $webInp[$pos+1] + " "}
             "protocol" {$webCommand += "-Protocol " + $webInp[$pos+1] + " "}
+            "remaddr" {$webCommand += "-RemoteAddress " + $webInp[$pos+1] + " "}
         }
 
         if($webInp[$pos] -eq "dir"){
@@ -130,12 +142,22 @@ function Rule-Generator($webInp, $profFN, $targFN){
         Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Flags are being added to the targets according to the specified group" >> "$LOGS_PATH/fwEditor.log";
         foreach($el in $title){
             for($i=0; $i -le $numEl[$ctr]; $i++){
+
+                $TARGETS_LIST += $recipients[$acc + $i] + ",";
+
+                # If it is the last element, the last comma is removed
+                if($i -eq ($numEl[$ctr]-1)){
+                    $TARGETS_LIST -replace ".{1}$";
+                }
+            
+                <#
                 Switch($el){
                     "IPs" {$targetList += "-RemoteAddress " + $recipients[$acc + $i] + " "}
                     "Computers" {$targetList += "" + $recipients[$acc + $i] + " "}                # Test whether writing the name of a computer within the AD is resolved
                     # "Groups" {$command += "- " + $el + " "}               # Test whether writing the name of a Group belonging to the AD is resolved
                     # "OUs" {$command += "-Protocol " + $el + " "}          # Test whether writing the name of an OU belonging to the AD is resolved
                 }
+                #>
             }
 
             $ctr += 1;
@@ -143,14 +165,20 @@ function Rule-Generator($webInp, $profFN, $targFN){
         }
 
         Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Rule coming from the website/GUI is being merged with specified targets" >> "$LOGS_PATH/fwEditor.log";
+        <#
         foreach($el in $targetList){
             $rules += $webCommand + $el + ";";
         }
+        #>
     }
 
+    $rules += $webCommand + ";";
+
+    <#
     else {
-        $targetList += $webCommand + ";";
+        $rules += $webCommand + ";";
     }
+    #>
 
     # MERGE WITH SPECIFIED TARGETS WAS MADE HERE
 
@@ -174,14 +202,14 @@ function Rule-Generator($webInp, $profFN, $targFN){
 
         foreach($target in $targetList){
             foreach($profRule in $listOfProfRules){
-                $rules += $profRule + $target + ";";
+                $rules += $profRule + $target + " ;";
             }
         }
     }
 
     else {
         foreach($target in $targetList){
-            $rules += $target;
+            $rules += $target + " ;";
         }
     }
 
@@ -212,6 +240,8 @@ function main{
     $profFN = Filename-Extractor $webInp "Profiles"
     $targFN = Filename-Extractor $webInp "Targets";
 
+    Write-Output $targFN;
+
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Calling 'Rule-Generator' function..." >> "$LOGS_PATH/fwEditor.log";
     $new_rules = Rule-Generator $webInp $profFN $targFN;
 
@@ -221,19 +251,3 @@ function main{
 # 'main' function is invoked. Create to keep the script clean.
 Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Calling function 'main" >> "$LOGS_PATH/fwEditor.log"; 
 main;
-
-<# NEXT STEPS   
-
-2. "Rule-Generator" function must be finished. All information gathered from Profile, Targets and User's input must be combined to create a set of rules that will be executed in the remote computers by using the "Invoke-Expression" command from powershell - COMPLETED
-
-3. The main "flow" of the program shall be reviewed (main function)
-
-5. Maybe, transform the tool into a more modular tool to make it easier for people to do extra things. 
-    5.1 This means to separate each feature into different files, and then have a sole, main file that calls functions from each
-    file. 
-
-6. Comment code
-7. Create logs for each script
-#>
-
-

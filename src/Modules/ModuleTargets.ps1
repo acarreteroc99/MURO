@@ -22,8 +22,9 @@ function Implement-Targets{
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Checking whether 'Targets' option has been submitted" >> "$LOGS_PATH_MT/ModuleTargets.log";
     if($targets.Length -ne 0){
         Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Getting content from the selected target files" >> "$LOGS_PATH_MT/ModuleTargets.log";
+        # For each file within the sent array, extract its content
         foreach($tgt in $targets){
-            if($targets.Length -ne 0){
+            if($tgt.Length -ne 0){
                 $templContent = $(Get-Content "$PROFTARGT_PATH_MT/$tgt" | Out-String | ConvertFrom-Json);
 
                 foreach($el in $templContent.Inbound){
