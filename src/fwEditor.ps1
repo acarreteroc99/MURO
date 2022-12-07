@@ -68,9 +68,7 @@ function Filename-Extractor([array]$arrayInp,[string]$flagName){
 
     $FileName="";
 
-    for($pos=0; $pos -lt $($arrayInp.Length); $pos++){
-
-        "Content in position $pos is {0}" -f $arrayInp[$pos];
+    for($pos=0; $pos -lt $($arrayInp.Length); $pos+=2){
 
         if($arrayInp[$pos] -eq $flagName){
             $FileName=$arrayInp[$($pos+1)];
@@ -92,7 +90,8 @@ function Rule-Generator($webInp, $profFN, $targFN){
 
     # ============   WEBINPUT   ==============
     # $webCommand = "Set-NetFirewallRule ";
-    $webCommand = "Invoke-Command -ComputerName $TARGETS_LIST -Credential $CREDS -ScriptBlock { Set-NetFirewallRule ";
+    # $webCommand = "Invoke-Command -ComputerName $TARGETS_LIST -Credential $CREDS -ScriptBlock { Set-NetFirewallRule ";
+    $webCommand = " -Credential $CREDS -ScriptBlock { Set-NetFirewallRule ";
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Creation of the rule defined by the user through the GUI has started" >> "$LOGS_PATH/fwEditor.log";
 
@@ -144,12 +143,7 @@ function Rule-Generator($webInp, $profFN, $targFN){
             for($i=0; $i -le $numEl[$ctr]; $i++){
 
                 $TARGETS_LIST += $recipients[$acc + $i] + ",";
-
-                # If it is the last element, the last comma is removed
-                if($i -eq ($numEl[$ctr]-1)){
-                    $TARGETS_LIST -replace ".{1}$";
-                }
-            
+                
                 <#
                 Switch($el){
                     "IPs" {$targetList += "-RemoteAddress " + $recipients[$acc + $i] + " "}
@@ -164,6 +158,8 @@ function Rule-Generator($webInp, $profFN, $targFN){
             $acc += $numEl[$ctr];
         }
 
+        $TARGETS_LIST = $TARGETS_LIST.TrimEnd(",");
+
         Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Rule coming from the website/GUI is being merged with specified targets" >> "$LOGS_PATH/fwEditor.log";
         <#
         foreach($el in $targetList){
@@ -172,7 +168,7 @@ function Rule-Generator($webInp, $profFN, $targFN){
         #>
     }
 
-    $rules += $webCommand + ";";
+    $rules += "Invoke-Command -ComputerName $TARGETS_LIST" + $webCommand + "; }";
 
     <#
     else {
@@ -238,9 +234,7 @@ function main{
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Extracting filenames from Profiles and Targets files (if specified)" >> "$LOGS_PATH/fwEditor.log";
     $profFN = Filename-Extractor $webInp "Profiles"
-    $targFN = Filename-Extractor $webInp "Targets";
-
-    Write-Output $targFN;
+    $targFN = Filename-Extractor $webInp "targets";
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Calling 'Rule-Generator' function..." >> "$LOGS_PATH/fwEditor.log";
     $new_rules = Rule-Generator $webInp $profFN $targFN;
