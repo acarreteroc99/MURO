@@ -24,11 +24,12 @@ Param(
     [Array]$Profiles,
     [Array]$Targets,
 
-    [String]$WebInput
+    [String]$WebInput,
+    [String]$Mode
 )
 
-$USR = "XXXXX";
-$SECRET = ConvertTo-SecureString -String "YYYYY" -AsPlainText -Force;
+$USR = "AM\Administrador";
+$SECRET = ConvertTo-SecureString -String "Domaincontroller123!" -AsPlainText -Force;
 $CREDS = [pscredential]::new($USR,$SECRET);
 
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
@@ -36,6 +37,7 @@ $PROFTARGT_PATH = "../json/Profiles/Targets";
 $MODULES_PATH = "./Modules";
 $LOGS_PATH = "../logs";
 
+$MODE = "";
 $TARGETS_LIST = "";
 
 # Set-Variable PROFTEMPL_PATH -option Constant -value "../jsonProfiles/Templates";
@@ -64,7 +66,7 @@ function WebInput-Parser([array] $info){
     return $split2;
 }
 
-function Filename-Extractor([array]$arrayInp,[string]$flagName){
+function Word-Extractor([array]$arrayInp,[string]$flagName){
 
     $FileName="";
 
@@ -91,17 +93,21 @@ function Rule-Generator($webInp, $profFN, $targFN){
     # ============   WEBINPUT   ==============
     # $webCommand = "Set-NetFirewallRule ";
     # $webCommand = "Invoke-Command -ComputerName $TARGETS_LIST -Credential $CREDS -ScriptBlock { Set-NetFirewallRule ";
-    $webCommand = " -Credential $CREDS -ScriptBlock { Set-NetFirewallRule ";
+    $webCommand = " -Credential $CREDS -ScriptBlock { $MODE-NetFirewallRule ";
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Creation of the rule defined by the user through the GUI has started" >> "$LOGS_PATH/fwEditor.log";
 
     for($pos=0; $pos -le $webInp.length-1; $pos+=2){
 
         Switch($webInp[$pos]){
+            "cust_targets" {$TARGETS_LIST += $webInp[$pos+1] + ","}
+
             "action" {$webCommand += "-Action " + $webInp[$pos+1] + " "}
             "dir" {$webCommand += "-Direction " + $webInp[$pos+1] + " "}
             "enabled" {$webCommand += "-Enabled " + $webInp[$pos+1] + " "}
             "localaddr" {$webCommand += "-LocalAddress " + $webInp[$pos+1] + " "}
+            "name" {$webCommand += "-Name " + $webInp[$pos+1] + " "}
+            "dispname" {$webCommand += "-DisplayName " + $webInp[$pos+1] + " "}
             "newname" {$webCommand += "-NewDisplayName " + $webInp[$pos+1] + " "}
             "port" {$webCommand += "-LocalPort " + $webInp[$pos+1] + " "}
             "protocol" {$webCommand += "-Protocol " + $webInp[$pos+1] + " "}
@@ -158,8 +164,6 @@ function Rule-Generator($webInp, $profFN, $targFN){
             $acc += $numEl[$ctr];
         }
 
-        $TARGETS_LIST = $TARGETS_LIST.TrimEnd(",");
-
         Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Rule coming from the website/GUI is being merged with specified targets" >> "$LOGS_PATH/fwEditor.log";
         <#
         foreach($el in $targetList){
@@ -167,6 +171,8 @@ function Rule-Generator($webInp, $profFN, $targFN){
         }
         #>
     }
+
+    $TARGETS_LIST = $TARGETS_LIST.TrimEnd(",");
 
     $rules += "Invoke-Command -ComputerName $TARGETS_LIST" + $webCommand + "; }";
 
@@ -189,7 +195,8 @@ function Rule-Generator($webInp, $profFN, $targFN){
         Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Creating rule from profiles' contents" >> "$LOGS_PATH/fwEditor.log";
         foreach($aux in $profileRules){
             foreach($rule in $aux){
-                $aux2 = "Set-NetFirewallRule " + $rule;
+                # $aux2 = "Set-NetFirewallRule " + $rule;
+                $aux2 = "Invoke-Command -ComputerName $TARGETS_LIST -Credential $CREDS -ScriptBlock { $MODE-NetFirewallRule " + $rule + ";}";
                 $listOfProfRules += $aux2;
             }
         }
@@ -203,11 +210,13 @@ function Rule-Generator($webInp, $profFN, $targFN){
         }
     }
 
+    <#
     else {
         foreach($target in $targetList){
             $rules += $target + " ;";
         }
     }
+    #>
 
     # MERGE WITH RULES FROM PROFILE WAS MADE HERE
 
@@ -233,8 +242,10 @@ function main{
     #>
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Extracting filenames from Profiles and Targets files (if specified)" >> "$LOGS_PATH/fwEditor.log";
-    $profFN = Filename-Extractor $webInp "Profiles"
-    $targFN = Filename-Extractor $webInp "targets";
+    $profFN = Word-Extractor $webInp "profiles";
+    $targFN = Word-Extractor $webInp "targets";
+    $MODE = Word-Extractor $webInp "mode";
+    $MODE = $MODE.Substring(0,1).ToUpper()+$MODE.Substring(1).ToLower();
 
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Calling 'Rule-Generator' function..." >> "$LOGS_PATH/fwEditor.log";
     $new_rules = Rule-Generator $webInp $profFN $targFN;
@@ -245,3 +256,16 @@ function main{
 # 'main' function is invoked. Create to keep the script clean.
 Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Calling function 'main" >> "$LOGS_PATH/fwEditor.log"; 
 main;
+
+<#
+======================   NEXT STEPS   ======================
+PENDING
+1. Check why network 13.13.13.0 is unable to arrive to net 12.12.12.0
+2. Check why hardcoded credentials are not working when command is launched
+
+COMPLETED
+3. Adequate "Profiles" option for web input - OK: solved as in "Targets"
+4. Solve issue with "Targets" and "cust_targets" - OK: solved with new flag cust_targets
+5. Include options to edit existing rule or create a new one - OK: solved by using variable $MODE
+#>
+
