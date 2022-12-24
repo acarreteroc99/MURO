@@ -28,7 +28,7 @@ Param(
     [String]$Mode
 )
 
-$USR = "AM\Administrador";
+$USR = "ICORP\MURO_SS";
 $SECRET = ConvertTo-SecureString -String "Domaincontroller123!" -AsPlainText -Force;
 $CREDS = [pscredential]::new($USR,$SECRET);
 
