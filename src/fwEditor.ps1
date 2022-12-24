@@ -250,7 +250,10 @@ function main{
     Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Calling 'Rule-Generator' function..." >> "$LOGS_PATH/fwEditor.log";
     $new_rules = Rule-Generator $webInp $profFN $targFN;
 
-    Write-Output $new_rules;
+    foreach($rule in $new_rules){
+        Invoke-Expression $rule;
+        Write-Output $rule;
+    }
 }
 
 # 'main' function is invoked. Create to keep the script clean.
@@ -260,10 +263,10 @@ main;
 <#
 ======================   NEXT STEPS   ======================
 PENDING
-1. Check why network 13.13.13.0 is unable to arrive to net 12.12.12.0
-2. Check why hardcoded credentials are not working when command is launched
+1. Figure out how to introduce $CREDS in command without them turning into "System.Management.Automation.PSCredential"
 
 COMPLETED
+2. Check why network 13.13.13.0 is unable to arrive to net 12.12.12.0
 3. Adequate "Profiles" option for web input - OK: solved as in "Targets"
 4. Solve issue with "Targets" and "cust_targets" - OK: solved with new flag cust_targets
 5. Include options to edit existing rule or create a new one - OK: solved by using variable $MODE
