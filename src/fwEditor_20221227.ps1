@@ -28,6 +28,10 @@ Param(
     [String]$Mode
 )
 
+$USR = "ICORP\MURO_SS";
+$SECRET = ConvertTo-SecureString -String "" -AsPlainText -Force;
+$CREDS = [pscredential]::new($USR,$SECRET);
+
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
 $PROFTARGT_PATH = "../json/Profiles/Targets";
 $MODULES_PATH = "./Modules";
@@ -171,7 +175,7 @@ function Rule-Generator($webInp, $profFN, $targFN){
     $TARGETS_LIST = $TARGETS_LIST.TrimEnd(",");
 
     # $rules += "Invoke-Command -ComputerName $TARGETS_LIST" + $webCommand + "; }";
-    $rules += "-ComputerName $TARGETS_LIST" + $webCommand + "; }";
+    $rules += " -ComputerName $TARGETS_LIST" + $webCommand + "; }";
 
     <#
     else {
@@ -195,7 +199,7 @@ function Rule-Generator($webInp, $profFN, $targFN){
                 # $aux2 = "Set-NetFirewallRule " + $rule;
                 # $aux2 = "Invoke-Command -ComputerName $TARGETS_LIST -Credential $CREDS -ScriptBlock { $MODE-NetFirewallRule " + $rule + ";}";
                 # $aux2 = "Invoke-Command -ComputerName $TARGETS_LIST -ScriptBlock { $MODE-NetFirewallRule " + $rule + ";}";
-                $aux2 = "-ComputerName $TARGETS_LIST -ScriptBlock { $MODE-NetFirewallRule " + $rule + ";}";
+                $aux2 = " -ComputerName $TARGETS_LIST -ScriptBlock { $MODE-NetFirewallRule " + $rule + ";}";
                 $listOfProfRules += $aux2;
             }
         }
@@ -250,7 +254,10 @@ function main{
     $new_rules = Rule-Generator $webInp $profFN $targFN;
 
     foreach($rule in $new_rules){
-        Write-Output "Invoke-Command $rule";
+        # Invoke-Expression $rule;
+        # $rule += " -Credential "
+        # Invoke-Command -Credential $CREDS -ScriptBlock { $rule };
+        Write-Output "Invoke-Command -Credential ICORP\MURO_SS $rule";
     }
 }
 
@@ -261,8 +268,7 @@ main;
 <#
 ======================   NEXT STEPS   ======================
 PENDING
-1. (lines 174 and 198) figure out how to determine the destination computer without converting the command into a string
-    1.1 IMPORTANT! Maybe, as credentials are no longer being used, the command's format can stay as it is
+1. Figure out how to introduce $CREDS in command without them turning into "System.Management.Automation.PSCredential"
 
 COMPLETED
 2. Check why network 13.13.13.0 is unable to arrive to net 12.12.12.0
@@ -270,3 +276,5 @@ COMPLETED
 4. Solve issue with "Targets" and "cust_targets" - OK: solved with new flag cust_targets
 5. Include options to edit existing rule or create a new one - OK: solved by using variable $MODE
 #>
+
+# Make Domain Admin Local Admin in all computers in AD -> https://social.technet.microsoft.com/wiki/contents/articles/7833.active-directory-gpo-to-make-a-domain-user-the-local-administrator-for-all-pcs.aspx
