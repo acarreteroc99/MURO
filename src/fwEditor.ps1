@@ -250,8 +250,11 @@ function main{
     $new_rules = Rule-Generator $webInp $profFN $targFN;
 
     foreach($rule in $new_rules){
+        # Write-Output "[$((Get-Date -Format d).ToString()) $((Get-Date -Format t).ToString())] Setting firewall rules!!" >> "$LOGS_PATH/fwEditor.log";
+        Invoke-Expression "Invoke-Command $rule";
         Write-Output "Invoke-Command $rule";
     }
+    Exit;
 }
 
 # 'main' function is invoked. Create to keep the script clean.
