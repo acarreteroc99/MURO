@@ -28,8 +28,8 @@ Param(
     [String]$Mode
 )
 
-$USR = "ICORP\MURO_SS";
-$SECRET = ConvertTo-SecureString -String "" -AsPlainText -Force;
+$USR = "username";
+$SECRET = ConvertTo-SecureString -String "passwd" -AsPlainText -Force;
 $CREDS = [pscredential]::new($USR,$SECRET);
 
 $PROFTEMPL_PATH = "../json/Profiles/Templates";
