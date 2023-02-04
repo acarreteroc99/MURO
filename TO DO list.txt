@@ -1,8 +1,0 @@
-============================================================
-                        TO DO LIST
-============================================================
-
-+ Check whether executing this command with a Global Admin account would extract all the information from the forest. 
-+ Insert domain extracted with "extractDomain" func in JSON final file - NOT NEEDED
-+ Make recursive search to find extract info from all computers within a forest - OK
-+ Make recursive search to find extract info from all users within a forest - OK
