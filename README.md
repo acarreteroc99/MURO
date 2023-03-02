@@ -12,10 +12,6 @@ MURO allows to edit any computer's local firewall enrolled in an Actve Directory
 
 ## Using MURO
 
-### Regular usage
-
-### Profiles
-
 MURO allows users to create a set of rules for multiple devices. By creating "Profiles", which are rules structured in a JSON format, users can load them to MURO and edit multiple firewalls from different endpoints at once. 
 
 | Flag | Type | Description | Example |
