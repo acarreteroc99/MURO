@@ -8,7 +8,7 @@ MURO is a tool aimed to increase microsegmentation in a local firewall level, pr
 
 ## What functionalities does MURO include?
 
-## Installing MURO
+MURO allows to edit any computer's local firewall enrolled in an Actve Directory either through a GUI or script FW_Editor.ps1. Additionally, multiple devices can be manipulated by using a "Targets" template or define a standard configuration by deploying a "Profile". 
 
 ## Using MURO
 
